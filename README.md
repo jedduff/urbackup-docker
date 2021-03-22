@@ -1,5 +1,6 @@
-# urbackup-docker
-:floppy_disk: docker container for urbackup-server
+# urbackup-docker beta 2.5.18
+:floppy_disk: docker container for urbackup-server beta 2.5.18
+
 
 UrBackup is an easy to setup Open Source client/server backup system, that through a combination of image and file backups accomplishes both data safety and a fast restoration time.
 
@@ -40,7 +41,7 @@ docker run \
     - /srv/docker/compose/urbackup:/var/urbackup
     - /media/backup:/backup
     environment:
-    - TZ=Europe/Vienna
+    - TZ=America/New_York
     restart: always
 ```
 
@@ -83,8 +84,8 @@ if you don't want to use net="host" you can expose the following ports
 
 ### Build
 ```bash
-$ git clone https://github.com/firsttris/urbackup-docker.git
-$ cd urbackup-docker
+$ gh repo clone jedduff/urbackup-docker-beta
+$ cd urbackup-docker-beta
 $ docker build -t jedduff/urbackup-docker:2.5.18 .
 ```
 
