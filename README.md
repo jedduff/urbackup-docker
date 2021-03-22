@@ -1,8 +1,6 @@
 # urbackup-docker
 :floppy_disk: docker container for urbackup-server
 
-[![Docker Automated buil](https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg)](https://hub.docker.com/r/tristanteu/urbackup-docker/)
-
 UrBackup is an easy to setup Open Source client/server backup system, that through a combination of image and file backups accomplishes both data safety and a fast restoration time.
 
 [www.urbackup.org](https://www.urbackup.org/index.html)
@@ -10,7 +8,7 @@ UrBackup is an easy to setup Open Source client/server backup system, that throu
 
 ### Pull:
 ```bash
-docker pull tristanteu/urbackup-docker
+docker pull jedduff/urbackup-docker:2.5.18
 ```
 
 ### Run:
@@ -22,7 +20,7 @@ docker run \
 -v /home/docker/urbackup/db/:/var/urbackup \
 -v /media/8tb.wd.red/backup/:/backup \
 --net="host" \
--d tristanteu/urbackup-docker
+-d jedduff/urbackup-docker:2.5.18
 ```
 
 ### Docker-compose.yml - needed setting for native btrfs storage snapshots
@@ -32,7 +30,7 @@ docker run \
 ### Docker-compose.yml example:
 ```bash
   urbackup:
-    image: tristanteu/urbackup-docker
+    image: jedduff/urbackup-docker:2.5.18
     container_name: urbackup
     network_mode: host
     cap_add:
@@ -52,7 +50,7 @@ yourserverip:55414
 ### Show all Cli Commands
 ```bash
 docker run \
---rm tristanteu/urbackup-docker --help
+--rm jedduff/urbackup-docker:2.5.18 --help
 ```
 
 ### Remove-Unkown
@@ -62,7 +60,7 @@ Cleaning the backup folder of files not known by UrBackup Database
 docker run \
 -v /home/docker/urbackup/db/:/var/urbackup \
 -v /media/8tb.wd.red/backup/:/backup \
---rm tristanteu/urbackup-docker remove-unknown
+--rm jedduff/urbackup-docker:2.5.18 remove-unknown
 ```
 
 ### Cleanup
@@ -73,7 +71,7 @@ If it should only delete old backups use “0%”.
 docker run \
 -v /home/docker/urbackup/db/:/var/urbackup \
 -v /media/8tb.wd.red/backup/:/backup \
---rm tristanteu/urbackup-docker cleanup --amount 0%
+--rm jedduff/urbackup-docker:2.5.18 cleanup --amount 0%
 ```
 
 ### Network Mode
@@ -87,7 +85,7 @@ if you don't want to use net="host" you can expose the following ports
 ```bash
 $ git clone https://github.com/firsttris/urbackup-docker.git
 $ cd urbackup-docker
-$ docker build -t tristanteu/urbackup-docker .
+$ docker build -t jedduff/urbackup-docker:2.5.18 .
 ```
 
 ### Important - First Start
