@@ -1,5 +1,5 @@
-# urbackup-docker beta 2.5.18
-:floppy_disk: docker container for urbackup-server beta 2.5.18
+# urbackup-docker beta 2.5.20
+:floppy_disk: docker container for urbackup-server beta 2.5.20
 
 
 UrBackup is an easy to setup Open Source client/server backup system, that through a combination of image and file backups accomplishes both data safety and a fast restoration time.
@@ -9,7 +9,7 @@ UrBackup is an easy to setup Open Source client/server backup system, that throu
 
 ### Pull:
 ```bash
-docker pull jedduff/urbackup-docker:2.5.18
+docker pull jedduff/urbackup-docker:2.5.x
 ```
 
 ### Run:
@@ -21,7 +21,7 @@ docker run \
 -v /home/docker/urbackup/db/:/var/urbackup \
 -v /media/8tb.wd.red/backup/:/backup \
 --net="host" \
--d jedduff/urbackup-docker:2.5.18
+-d jedduff/urbackup-docker:2.5.x
 ```
 
 ### Docker-compose.yml - needed setting for native btrfs storage snapshots
@@ -31,7 +31,7 @@ docker run \
 ### Docker-compose.yml example:
 ```bash
   urbackup:
-    image: jedduff/urbackup-docker:2.5.18
+    image: jedduff/urbackup-docker:2.5.x
     container_name: urbackup
     network_mode: host
     cap_add:
@@ -51,7 +51,7 @@ yourserverip:55414
 ### Show all Cli Commands
 ```bash
 docker run \
---rm jedduff/urbackup-docker:2.5.18 --help
+--rm jedduff/urbackup-docker:2.5.x --help
 ```
 
 ### Remove-Unkown
@@ -61,7 +61,7 @@ Cleaning the backup folder of files not known by UrBackup Database
 docker run \
 -v /home/docker/urbackup/db/:/var/urbackup \
 -v /media/8tb.wd.red/backup/:/backup \
---rm jedduff/urbackup-docker:2.5.18 remove-unknown
+--rm jedduff/urbackup-docker:2.5.x remove-unknown
 ```
 
 ### Cleanup
@@ -72,7 +72,7 @@ If it should only delete old backups use “0%”.
 docker run \
 -v /home/docker/urbackup/db/:/var/urbackup \
 -v /media/8tb.wd.red/backup/:/backup \
---rm jedduff/urbackup-docker:2.5.18 cleanup --amount 0%
+--rm jedduff/urbackup-docker:2.5.x cleanup --amount 0%
 ```
 
 ### Network Mode
@@ -86,7 +86,7 @@ if you don't want to use net="host" you can expose the following ports
 ```bash
 $ gh repo clone jedduff/urbackup-docker-beta
 $ cd urbackup-docker-beta
-$ docker build -t jedduff/urbackup-docker:2.5.18 .
+$ docker build -t jedduff/urbackup-docker:2.5.x .
 ```
 
 ### Important - First Start
